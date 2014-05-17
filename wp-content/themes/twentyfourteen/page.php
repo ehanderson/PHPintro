@@ -11,37 +11,33 @@
  * @since Twenty Fourteen 1.0
  */
 
-get_header(); ?>
+get_header();
+
+
+if(isset($_POST['fav_color'])) {
+	echo "Color: ".($_POST['fav_color']);
+}
+
+
+?>
 
 <div id="main-content" class="main-content">
-
-<?php
-	if ( is_front_page() && twentyfourteen_has_featured_posts() ) {
-		// Include the featured content template.
-		get_template_part( 'featured-content' );
-	}
-?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
-			<?php
-				// Start the Loop.
-				while ( have_posts() ) : the_post();
-
-					// Include the page content template.
-					get_template_part( 'content', 'page' );
-
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
-					}
-				endwhile;
-			?>
-
+			<form method="post">
+				<input type="radio" name="fav_color" value="Red">Red<br>
+				<input type="radio" name="fav_color" value="Blue">Blue<br>
+				<input type="radio" name="fav_color" value="Yellow">Yellow
+				<input type="submit" value="submit" id="form-submit">
+			</form>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 	<?php get_sidebar( 'content' ); ?>
 </div><!-- #main-content -->
+<script>
+	$('#form-submit').hide();//.attr('disabled', 'disabled');
+</script>
 
 <?php
 get_sidebar();
