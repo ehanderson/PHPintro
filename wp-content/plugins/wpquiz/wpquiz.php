@@ -26,6 +26,16 @@ function wpquiz_menu(){
   'wpquiz_options_page'
  );
 }
+// function wp_quiz_shortcode($content = null){
+//   global $post;
+//   ob_start();
+//   require('inc/options-page-wrapper.php');
+//   // $content = ob_get_clean();
+//   // return $content
+// };
+
+// add_shortcode('wpquiz', 'wpquiz_shortcode')
+
 add_action('admin_menu', 'wpquiz_menu');
 
 function wpquiz_options_page(){
@@ -35,8 +45,7 @@ function wpquiz_options_page(){
   global $plugin_url;
   require('inc/options-page-wrapper.php');
   // require('js/options-page-wrapper.js');
-}
-
+};
 
 
 ?>

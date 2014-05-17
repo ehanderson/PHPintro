@@ -106,7 +106,7 @@ fieldset{
                     <?php if (isset($wpquiz_question1) && $wpquiz_question1 == 'c') echo "checked"?>
                     <br>
                     <input type="button" name="next" class="next action-button" value="Next" />
-
+                    <p>(1 of 5)</p>
                   </fieldset>
                   <fieldset>
                      <h3>Question 2</h3>
@@ -122,6 +122,7 @@ fieldset{
                     <br>
                     <input type="button" name="previous" class="previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
+                    <p>(2 of 5)</p>
                   </fieldset>
                   <fieldset>
                      <h3>Question 3</h3>
@@ -135,7 +136,7 @@ fieldset{
                     <input type="button" name="previous" class="previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
 
-
+                    <p>(3 of 5)</p>
                   </fieldset>
                   <fieldset>
                      <h3>Question 4</h3>
@@ -149,7 +150,7 @@ fieldset{
                     <input type="button" name="previous" class="previous" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
 
-
+                    <p>(4 of 5)</p>
                   </fieldset>
                   <fieldset>
 
@@ -174,7 +175,7 @@ fieldset{
                     <br>
                     <input type="button" name="previous" class="previous" value="Previous" />
                   <br>
-                  <input class="button-primary" type="submit" name="wpquiz_email_submit" value="Find Results" />
+                  <input class="button-primary" id= 'submit' type="submit" name="wpquiz_email_submit" value="Find Results" />
 
                   </fieldset>
               </form>
@@ -228,6 +229,7 @@ fieldset{
 
 <script type="text/javascript">
 //jQuery time
+//jQuery time
 var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
@@ -240,7 +242,7 @@ $(".next").click(function(){
   next_fs = $(this).parent().next();
 
   //activate next step on progressbar using the index of next_fs
-  // $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+  $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
   //show the next fieldset
   next_fs.show();
@@ -275,7 +277,7 @@ $(".previous").click(function(){
   previous_fs = $(this).parent().prev();
 
   //de-activate current step on progressbar
-  // $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+  $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
 
   //show the previous fieldset
   previous_fs.show();
@@ -305,6 +307,3 @@ $(".previous").click(function(){
 $(".submit").click(function(){
   return false;
 })
-
-
-</script>
