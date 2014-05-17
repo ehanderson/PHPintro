@@ -248,3 +248,21 @@ fieldset{
   </div> <!-- #poststuff -->
 
 </div> <!-- .wrap -->
+
+<script>
+  $("#submit-form-button").attr("disabled", "disabled")
+
+  $emailField = $("#wpquiz_email");
+  $emailField.on("keyup", function() {
+    checkValidEmail($emailField.val());
+  });
+
+  checkValidEmail = function(email) {
+    if(email.match(/\w+@+\w+\.+\w+/i)) {
+      $("#submit-form-button").removeAttr("disabled");
+    }
+    else {
+      $("#submit-form-button").attr("disabled", "disabled");
+    }
+  }
+</script>
