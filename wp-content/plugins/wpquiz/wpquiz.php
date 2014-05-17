@@ -34,8 +34,11 @@ function wpquiz_options_page(){
   }
   global $plugin_url;
   require('inc/options-page-wrapper.php');
+  // require('js/options-page-wrapper.js');
 }
 
 
 
 ?>
+
+
